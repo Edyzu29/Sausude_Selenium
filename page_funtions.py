@@ -1,4 +1,5 @@
 import data
+import time
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -21,10 +22,14 @@ class Sauce_funct:
         self.driver.find_element(*button_field).click()
 
     def collect_usarname(self):
-        return self.driver.find_elements(*examp_usaername_field)
+        return self.driver.find_element(*examp_usaername_field)
     
     def collect_password(self):
-        return self.driver.find_elements(*examp_password_field)
+        return self.driver.find_element(*examp_password_field)
     
     def collect_error_msj(self):
         return self.driver.find_element(*error_msg_field)
+    
+    def wait_for_error_msg(self):
+        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(examp_password_field))
+        time.sleep(5)

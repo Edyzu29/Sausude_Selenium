@@ -15,17 +15,30 @@ class Cases_test:
 
     def collect_credencials(self):
         login_test = Sauce_funct(self.driver)
-        list_username = login_test.collect_usarname()
-        list_password = login_test.collect_password()
+        usarname_html_txt = login_test.collect_usarname().text
+        password_html_txt = login_test.collect_password().text
 
-        for name in list_username:
-            print(name.get_property('text'))
+        list_username = usarname_html_txt.split('\n')
+        list_username.pop(0)
+
+        list_password = password_html_txt.split('\n')
+        list_password.pop(0)
+     
+        print(list_username)
+        print(list_password)
+
+        return list_username, list_password
+    
+    def click_login(self):
+        button_login_text = Sauce_funct(self.driver)
+        button_login_text.press_button()
+
+    def wait_for_error(self):
+        error_msg = Sauce_funct(self.driver)
+        error_msg.wait_for_error_msg()
         
+
         
-        print(len(list_username))
-        print(len(list_password))
-
-
     def error_moment(self):
         error_login_test = Sauce_funct(self.driver)
         list_error = error_login_test.collect_error_msj()
