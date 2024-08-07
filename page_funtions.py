@@ -33,3 +33,9 @@ class Sauce_funct:
     def wait_for_error_msg(self):
         WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(examp_password_field))
         time.sleep(5)
+
+    def press_menu(self):
+        self.driver.find_element(*menu_field).click()
+    
+    def press_logout(self):
+        self.driver.find_element(*logout_field).click()

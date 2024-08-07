@@ -1,1 +1,6 @@
 url_page = 'https://www.saucedemo.com/'
+inventory_page = 'inventory.html'
+cart_page = 'cart.html'
+cheakout_page = 'checkout-step-one.html'
+cheakout2_page = 'checkout-step-two.html'
+cheakout3_page = 'checkout-complete.html'
